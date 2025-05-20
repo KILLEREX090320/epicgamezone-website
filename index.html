@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Game Zone - Your Ultimate Gaming Destination</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #0f0f1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #1a1a2e;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4655;
+            text-transform: uppercase;
+        }
+        
+        .logo span {
+            color: #00ffff;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff4655;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff4655;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ff2d3e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 70, 85, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* Featured Games */
+        .featured-games {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: #ff4655;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #00ffff;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .game-card {
+            background-color: #1a1a2e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .game-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .game-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .game-card:hover .game-img img {
+            transform: scale(1.1);
+        }
+        
+        .game-info {
+            padding: 20px;
+        }
+        
+        .game-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #00ffff;
+        }
+        
+        .game-genre {
+            color: #ff4655;
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        .game-desc {
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #cccccc;
+        }
+        
+        .game-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #00ff88;
+        }
+        
+        .free-badge {
+            background-color: #00ff88;
+            color: #0f0f1a;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        /* News Section */
+        .news {
+            padding: 80px 0;
+            background-color: #1a1a2e;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background-color: #0f0f1a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-date {
+            color: #ff4655;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .news-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+        
+        .news-card:hover .news-title {
+            color: #00ffff;
+        }
+        
+        .news-excerpt {
+            margin-bottom: 15px;
+            color: #cccccc;
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0a0a12;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links li {
+            margin: 0 15px 10px;
+        }
+        
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ff4655;
+        }
+        
+        .social-icons {
+            margin-bottom: 30px;
+        }
+        
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #00ffff;
+        }
+        
+        .copyright {
+            color: #666666;
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .games-grid, .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links li {
+                margin: 0 10px 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Epic<span>Game</span>Zone</div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Games</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <a href="#" class="btn">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Ultimate Gaming Destination</h1>
+                <p>Discover the latest games, news, and reviews from the gaming world</p>
+                <a href="https://gamerant.com/gaming/" class="btn">Gaming News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Games -->
+    <section class="featured-games">
+        <div class="container">
+            <h2 class="section-title">Featured Games</h2>
+            <div class="games-grid">
+                <!-- Game Card 1 -->
+                <div class="game-card">
+                    <div class="game-img">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3241660/2cff5912c1add2e009eb1c1c630a47ac06cb81a1/capsule_616x353.jpg?t=1747381002" alt="R.E.P.O.">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">R.E.P.O.</h3>
+                        <p class="game-genre">Horror • Co-op • Multiplayer</p>
+                        <p class="game-desc">An online co-op horror game featuring physics, proximity voice chat and scary monsters. Team up with friends to survive terrifying encounters.</p>
+                        <p class="game-price">FREE <span class="free-badge">FREE TO PLAY</span></p>
+                        <a href="https://pixeldrain.com/u/G3hsUYTp" class="btn">Download Now</a>
+                        <a href="https://www.youtube.com/watch?v=oSfoK8eSeD8" class="btn">Watch Trailer</a>
+                    </div>
+                </div>
+                
+                <!-- Game Card 2 -->
+                <div class="game-card">
+                    <div class="game-img">
+                        <img src="https://primagames.com/wp-content/uploads/2023/04/The-Forest-vs.-Sons-of-the-Forest-Differences-and-Similarities.jpg?fit=1200%2C675" alt="Sons Of The Forest">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Sons Of The Forest</h3>
+                        <p class="game-genre">Survival Horror • Open World</p>
+                        <p class="game-desc">The sequel to the hit survival game The Forest. Stranded on a remote island, you must fight cannibals and mutants while searching for a missing billionaire.</p>
+                        <p class="game-price">FREE <span class="free-badge">FREE TO PLAY</span></p>
+                        <a href="#" class="btn">Download Now</a>
+                         <a href="https://www.youtube.com/watch?v=A_E4eCwUEqg" class="btn">Watch Trailer</a>
+                    </div>
+                </div>
+                
+                <!-- Game Card 3 -->
+                <div class="game-card">
+                    <div class="game-img">
+                        <img src="https://cdn1.epicgames.com/offer/611482b8586142cda48a0786eb8a127c/EGS_DeadbyDaylight_BehaviourInteractive_S1_2560x1440-a32581cf9948a9a2e24b2ff15c1577c7?resize=1&w=480&h=270&quality=medium" alt="Dead by Daylight">
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Dead by Daylight</h3>
+                        <p class="game-genre">Horror • Survival • Multiplayer</p>
+                        <p class="game-desc">A multiplayer horror game where one player takes on the role of the killer and the other four play as survivors trying to escape.</p>
+                        <p class="game-price">FREE <span class="free-badge">FREE TO PLAY</span></p>
+                        <a href="#" class="btn">Download Now</a>
+                        <a href="https://www.youtube.com/watch?v=JGhIXLO3ul8" class="btn">Watch Trailer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">Epic<span>Game</span>Zone</div>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-twitch"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-reddit"></i></a>
+            </div>
+            <p class="copyright">© 2023 Epic Game Zone. All rights reserved. All trademarks are property of their respective owners.</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons (you need internet connection for this to work) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

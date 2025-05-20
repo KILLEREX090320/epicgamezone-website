@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EpicGameZone - Download R.E.P.O. Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background-image: url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        header {
+            background: rgba(20, 20, 30, 0.9);
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border-bottom: 2px solid #ff4500;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #ff4500, #ff8c00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(255, 69, 0, 0.3);
+        }
+        nav {
+            background: rgba(30, 30, 40, 0.9);
+            padding: 0.8rem;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ff4500;
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            background: rgba(30, 30, 40, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .game-card {
+            background: rgba(40, 40, 50, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #ff4500;
+            transition: transform 0.3s;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+        .game-card h3 {
+            margin-top: 0;
+            color: #ff8c00;
+            font-size: 1.5rem;
+        }
+        .download-btn {
+            background: linear-gradient(90deg, #ff4500, #ff8c00);
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(255, 69, 0, 0.3);
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(255, 69, 0, 0.4);
+        }
+        #countdown {
+            font-size: 1.3rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: #ff8c00;
+            font-weight: bold;
+        }
+        #timer {
+            font-size: 1.5rem;
+            color: #ff4500;
+        }
+        footer {
+            background: rgba(20, 20, 30, 0.9);
+            color: #aaa;
+            text-align: center;
+            padding: 1.5rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            backdrop-filter: blur(5px);
+            border-top: 1px solid #333;
+        }
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .download-options {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EpicGameZone</h1>
+        <p>Your Ultimate Gaming Destination</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Top Games</a></li>
+            <li><a href="#">New Releases</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div id="countdown">Preparing download... <span id="timer">10</span> seconds</div>
+        <div class="game-card">
+            <h3>R.E.P.O.</h3>
+            <p>An online co-op horror game featuring physics, proximity voice chat and scary monsters. Team up with friends to survive terrifying encounters.</p>
+            <div class="download-options">
+                <a href="https://pixeldrain.com/u/G3hsUYTp" class="download-btn" target="_blank" id="downloadLink1" style="display: none;">Download Part 1</a>
+                <a href="https://pixeldrain.com/u/mVV1zh9P" class="download-btn" target="_blank" id="downloadLink2" style="display: none;">Download Part 2</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 EpicGameZone. All rights reserved. | Official partner downloads only.</p>
+    </footer>
+
+    <script>
+        // Countdown timer for download buttons
+        let timeLeft = 10;
+        const timer = document.getElementById('timer');
+        const downloadLinks = [
+            document.getElementById('downloadLink1'),
+            document.getElementById('downloadLink2')
+        ];
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timer.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                document.getElementById('countdown').innerHTML = '<span style="color:#2ecc71">✓ Download ready!</span>';
+                downloadLinks.forEach(link => {
+                    link.style.display = 'inline-block';
+                    link.classList.add('pulse');
+                });
+            } else if (timeLeft <= 3) {
+                timer.style.color = '#ff0000';
+                timer.classList.add('pulse');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
